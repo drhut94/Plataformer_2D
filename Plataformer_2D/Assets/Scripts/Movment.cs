@@ -7,8 +7,10 @@ public class Movment : MonoBehaviour {
     public Rigidbody2D rb;
     protected float moveHorizontal;
     protected Vector2 v2;
-    public float force;
     public float maxVelocity;
+    bool jump;
+    public float jumpForce;
+    private Vector2 force;
 
 
 	void Start () {
@@ -18,20 +20,24 @@ public class Movment : MonoBehaviour {
 
 	void Update () {
 
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
+        Debug.Log(Input.GetAxisRaw("Jump"));
 
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        jump = Input.GetButton("Jump");
+       
     }
 
     private void FixedUpdate()
     {
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        v2.x = force * moveHorizontal * Time.deltaTime;
+        v2 = rb.velocity;
+        v2.x = maxVelocity * moveHorizontal * Time.deltaTime * 100;
+        rb.velocity = v2;
 
-        if (rb.velocity.x > maxVelocity)
+        if (jump && rb.velocity.y == 0)
         {
-            rb.velocity = new Vector2 (maxVelocity, 0);
+            force = Vector2.up * jumpForce * 100;
+            rb.AddForce(force);
+            jump = false;
         }
-
-        rb.AddForce(v2);
     }
 }
