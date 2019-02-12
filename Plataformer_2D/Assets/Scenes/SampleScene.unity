@@ -20159,6 +20159,7 @@ GameObject:
   - component: {fileID: 2125222522}
   - component: {fileID: 2125222521}
   - component: {fileID: 2125222526}
+  - component: {fileID: 2125222527}
   m_Layer: 8
   m_Name: adventurer-hand-combat-Sheet_0
   m_TagString: Untagged
@@ -20283,7 +20284,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125222520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8634f29bf55b5684ab5efd344494f100, type: 3}
   m_Name: 
@@ -20291,3 +20292,16 @@ MonoBehaviour:
   rb: {fileID: 2125222522}
   maxVelocity: 10
   jumpForce: 7
+--- !u!114 &2125222527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125222520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be956c2d54af0f74fad71d6db999f3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  force: 100
