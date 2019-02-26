@@ -15,7 +15,8 @@ public class Movment_v2 : MonoBehaviour {
     public float acceleration;
     protected float moveHorizontal;
     public bool moveWhileJumping;
-
+    SpriteRenderer render;
+    
 
 
     enum Status {
@@ -35,8 +36,17 @@ public class Movment_v2 : MonoBehaviour {
     }
 	
 
+
     void Update () {
 
+        //if (moveHorizontal < 0)
+        //{
+        //    render.flipX = true;
+        //}
+        //else
+        //{
+        //    render.flipX = false;
+        //}
 
         moveHorizontal = Input.GetAxisRaw("Horizontal");
 
